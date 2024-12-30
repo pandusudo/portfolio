@@ -113,7 +113,7 @@ export default function Header() {
             </Sheet> */}
           </div>
 
-          <div className="flex gap-2 items-center sm:mr-0 mr-5">
+          <div className="flex gap-2 items-center mr-5">
             <NavigationMenu className="hidden md:flex">
               <NavigationMenuList>
                 {MENUS.map((menu, i) =>
