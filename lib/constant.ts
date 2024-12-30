@@ -1,78 +1,111 @@
 export const conf = {
-    NAME: 'pandusudo',
-    FULL_NAME: 'Pandu Cahyo P',
-    TITLE: 'Portfolio',
-    DESCRIPTION: "Pandu Cahyo's portfolio website - Software engineer with 4 years of experience.",
-    AUTHOR: {
-      NAME: 'pandusudo',
-      URL: 'https://github.com/pandusudo',
-    },
-    X_USERNAME: 'pandusudo',
-}
+  NAME: "pandusudo",
+  FULL_NAME: "Pandu Cahyo P",
+  TITLE: "Portfolio",
+  DESCRIPTION:
+    "Pandu Cahyo's portfolio website - Software engineer with 4 years of experience.",
+  AUTHOR: {
+    NAME: "pandusudo",
+    URL: "https://github.com/pandusudo",
+  },
+  X_USERNAME: "pandusudo",
+};
 
 export const techstack = [
   {
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain.svg",
-    alt: "Docker",
+    id: 1,
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain.svg",
+    name: "Docker",
   },
   {
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-plain.svg",
-    alt: "Typescript",
+    id: 2,
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-plain.svg",
+    name: "Typescript",
   },
   {
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg",
-    alt: "Javascript",
+    id: 3,
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg",
+    name: "Javascript",
   },
   {
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-plain.svg",
-    alt: "PostgreSQL",
+    id: 4,
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-plain.svg",
+    name: "PostgreSQL",
   },
   {
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg",
-    alt: "Golang",
+    id: 5,
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg",
+    name: "Golang",
   },
   {
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
-    alt: "Python",
+    id: 6,
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+    name: "Python",
   },
   {
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
-    alt: "PHP",
+    id: 7,
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
+    name: "PHP",
   },
   {
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg",
-    alt: "MySQL",
+    id: 8,
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg",
+    name: "MySQL",
   },
   {
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
-    alt: "NextJS",
+    id: 9,
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+    name: "NextJS",
   },
   {
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg",
-    alt: "NestJS",
+    id: 10,
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg",
+    name: "NestJS",
   },
   {
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
-    alt: "Laravel",
+    id: 11,
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
+    name: "Laravel",
   },
   {
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg",
-    alt: "GraphQL",
+    id: 12,
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg",
+    name: "GraphQL",
   },
   {
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-plain-wordmark.svg",
-    alt: "MongoDB",
+    id: 13,
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-plain-wordmark.svg",
+    name: "MongoDB",
   },
   {
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg",
-    alt: "NodeJS",
+    id: 14,
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg",
+    name: "NodeJS",
   },
   {
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg",
-    alt: "Prisma",
+    id: 15,
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg",
+    name: "Prisma",
   },
   {
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
-    alt: "React",
+    id: 16,
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+    name: "React",
   },
 ];
