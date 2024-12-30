@@ -11,7 +11,7 @@ export const conf = {
   X_USERNAME: "pandusudo",
 };
 
-export const techstack = [
+export const techstack: { id: number; image: string; name: string }[] = [
   {
     id: 1,
     image:
@@ -107,5 +107,11 @@ export const techstack = [
     image:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
     name: "React",
+  },
+  {
+    id: 17,
+    image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bun/bun-original.svg",
+    name: "Bun",
   },
 ];
