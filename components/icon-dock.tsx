@@ -12,28 +12,28 @@ export function IconDock() {
     <div className="relative">
       <Dock direction="middle" className="rounded-full">
         <DockIcon>
-          <Link href="https://github.com/pandusudo">
+          <Link href="https://github.com/pandusudo" target="_blank">
             <div className="p-3 rounded-full hover:bg-accent transition-colors">
               <Icons.gitHub className="size-6" />
             </div>
           </Link>
         </DockIcon>
         <DockIcon>
-          <Link href="https://x.com/pandusudo">
+          <Link href="https://x.com/pandusudo" target="_blank">
             <div className="p-3 rounded-full hover:bg-accent transition-colors">
               <Icons.x className="size-6" />
             </div>
           </Link>
         </DockIcon>
         <DockIcon>
-          <Link href="mailto:pandusudo@gmail.com">
+          <Link href="mailto:pandusudo@gmail.com" target="_blank">
             <div className="p-3 rounded-full hover:bg-accent transition-colors">
               <Icons.email className="size-6" />
             </div>
           </Link>
         </DockIcon>
         <DockIcon>
-          <Link href="https://www.linkedin.com/pandu-cahyo">
+          <Link href="https://www.linkedin.com/in/pandu-cahyo/" target="_blank">
             <div className="p-3 rounded-full hover:bg-accent transition-colors">
               <Icons.linkedin className="size-6" />
             </div>
