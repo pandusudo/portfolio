@@ -5,10 +5,10 @@ import { techstack } from "@/lib/constant";
 const firstRow = techstack.slice(0, techstack.length / 2);
 const secondRow = techstack.slice(techstack.length / 2);
 
-export function TechstackSlider({ duration = 15 }: { duration?: number }) {
+export function TechstackSlider() {
   return (
     <div className="relative flex h-max w-full py-16 flex-col items-center justify-center overflow-hidden bg-background ">
-      <Marquee className={`[--duration:${duration}s] mt-5`}>
+      <Marquee className="[--duration:15s] mt-5">
         {firstRow.map((icon) => (
           <Image
             className="px-3"
@@ -20,7 +20,7 @@ export function TechstackSlider({ duration = 15 }: { duration?: number }) {
           />
         ))}
       </Marquee>
-      <Marquee reverse className={`[--duration:${duration}s] mt-7`}>
+      <Marquee reverse className="[--duration:15s] mt-7">
         {secondRow.map((icon) => (
           <Image
             className="px-3"
