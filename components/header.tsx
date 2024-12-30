@@ -6,7 +6,6 @@ import { ExternalLinkIcon, LucideMoonStar, LucideSun } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -23,9 +22,9 @@ const MENUS: {
   items?: { label: string; href?: string; description?: string }[];
 }[] = [];
 
-export default function Header({ logoOnly = false }: { logoOnly?: boolean }) {
+export default function Header() {
   const { setTheme } = useTheme();
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
 
   const p = usePathname();
 
