@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Marquee from "./ui/marquee";
 import { techstack } from "@/lib/constant";
 import { AnimatedTooltip } from "./ui/animated-tooltip";
