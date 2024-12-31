@@ -22,10 +22,19 @@ export const metadata: Metadata = {
   keywords: "pandusudo, pandu cahyo p, portfolio",
   openGraph: {
     type: "website",
+    images: `${process.env.NEXT_PUBLIC_WEB_URL}/og.png`,
     locale: "en_US",
     url: process.env.NEXT_PUBLIC_WEB_URL,
     title: `${conf.FULL_NAME} - ${conf.TITLE}`,
     description: conf.DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: `@${conf.X_USERNAME}`,
+    creator: `@${conf.X_USERNAME}`,
+    title: `${conf.FULL_NAME} - ${conf.TITLE}`,
+    description: conf.DESCRIPTION,
+    images: `${process.env.NEXT_PUBLIC_WEB_URL}/og.png`,
   },
 };
 
