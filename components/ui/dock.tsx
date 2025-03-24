@@ -11,7 +11,7 @@ import {
   MotionProps,
 } from "framer-motion";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/app/lib/utils";
 
 export interface DockProps extends VariantProps<typeof dockVariants> {
   className?: string;

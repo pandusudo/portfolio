@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "./ui/button";
-import { cn } from "@/lib/utils";
+import { cn } from "@/app/lib/utils";
 import { ArrowLeftIcon, LucideMoonStar, LucideSun } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";

@@ -1,4 +1,4 @@
-import { conf } from "@/lib/constant";
+import { conf } from "@/app/lib/constant";
 
 export default function Footer() {
   return (

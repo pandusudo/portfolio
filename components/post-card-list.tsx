@@ -1,7 +1,7 @@
-import { Post } from "@/lib/posts";
+import { Post } from "@/app/lib/posts";
 import { Card } from "./ui/card";
 import Link from "next/link";
-import { truncateString } from "@/lib/utils";
+import { truncateString } from "@/app/lib/utils";
 
 export const PostCardList = ({ posts }: { posts: Post[] }) => {
   return (

@@ -1,4 +1,4 @@
-import { getPosts } from "@/lib/posts";
+import { getPosts } from "@/app/lib/posts";
 import { PostCardList } from "./post-card-list";
 
 export async function PostRSC() {

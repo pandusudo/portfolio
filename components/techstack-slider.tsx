@@ -1,5 +1,5 @@
 import Marquee from "./ui/marquee";
-import { techstack } from "@/lib/constant";
+import { techstack } from "@/app/lib/constant";
 import { AnimatedTooltip } from "./ui/animated-tooltip";
 
 const firstRow = techstack.slice(0, techstack.length / 2);

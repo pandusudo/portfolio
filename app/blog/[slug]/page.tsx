@@ -1,6 +1,6 @@
 import Header from "@/components/header";
 import { PostBody } from "@/components/post-body";
-import { getPost } from "@/lib/posts";
+import { getPost } from "@/app/lib/posts";
 import { notFound } from "next/navigation";
 
 export default async function PostPage({
