@@ -10,7 +10,6 @@ export default async function PostPage({
 }) {
   const params = await _params;
   const post = await getPost(params.slug);
-  console.log(typeof post?.body);
 
   if (!post) return notFound();
 
