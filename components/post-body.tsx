@@ -1,6 +1,5 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
-import rehypeStarryNight from "rehype-starry-night";
 import { mdxComponents } from "./mdx";
 
 export function PostBody({ children }: { children: string }) {
@@ -11,7 +10,7 @@ export function PostBody({ children }: { children: string }) {
       options={{
         mdxOptions: {
           remarkPlugins: [remarkGfm],
-          rehypePlugins: [rehypeStarryNight],
+          rehypePlugins: [],
         },
       }}
       components={mdxComponents}
