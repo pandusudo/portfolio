@@ -1,14 +1,10 @@
 "use client";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-import { Button } from "./button";
 
 export const Card = ({
   title,
-  description,
   imgUrl = `${process.env.NEXT_PUBLIC_WEB_URL}/avatar.svg`,
   date,
-  className,
 }: {
   title?: string;
   description?: string;

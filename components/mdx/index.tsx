@@ -23,18 +23,18 @@ export const mdxComponents: MDXComponents = {
       </Link>
     );
   },
-  h1: ({ children, ...props }) => {
+  h1: ({ children }) => {
     return <h1 className="text-2xl sm:text-4xl font-bold mb-4">{children}</h1>;
   },
-  h2: ({ children, ...props }) => {
+  h2: ({ children }) => {
     return <h2 className="text-xl sm:text-3xl font-bold mb-4">{children}</h2>;
   },
-  h3: ({ children, ...props }) => {
+  h3: ({ children }) => {
     return (
       <h3 className="text-lg sm:text-2xl font-semibold mb-4">{children}</h3>
     );
   },
-  h4: ({ children, ...props }) => {
+  h4: ({ children }) => {
     return (
       <h4 className="text-base sm:text-xl font-semibold mb-4">{children}</h4>
     );
@@ -46,10 +46,10 @@ export const mdxComponents: MDXComponents = {
       </p>
     );
   },
-  ul: ({ children, ...props }) => {
+  ul: ({ children }) => {
     return <ul className="list-disc">{children}</ul>;
   },
-  ol: ({ children, ...props }) => {
+  ol: ({ children }) => {
     return <ul className="list-decimal">{children}</ul>;
   },
   pre: Code,
