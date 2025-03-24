@@ -1,0 +1,146 @@
+---
+title: "How to Handle Errors in Golang: A Beginner’s Guide"
+description: Beginner Guide to Handle Error in Golang
+slug: handling-error-in-golang
+imgUrl: golang.svg
+date: Mar 24, 2025
+---
+
+### Why error handling is important in software engineering?
+
+Error handling is a key part of software development that helps keep your app running smoothly and reliably. If you ignore it, you might run into unexpected crashes, security issues, or performance problems that could frustrate users.
+
+<br />
+### What differentiates error handling in Golang from other languages?
+
+Error handling in Go is a bit different from other languages. Instead of using exceptions like Python, Java, or JavaScript, Go treats errors as regular values. This means you have to handle errors explicitly, making your code more predictable and reducing unexpected failures.
+
+Rather than relying on try-catch blocks, Go functions return errors alongside their results, making error checking straightforward and consistent. This approach promotes defensive programming and helps build more reliable software.
+
+Up next, we’ll explore Go’s error handling patterns and best practices!
+
+<br />
+
+### Returning Errors in Go
+
+In Go, it's best to place the error as the last return value in a function. This keeps the code readable and consistent across different projects.
+
+Go developers expect errors to be the final return value, making function signatures easier to read and understand. Keeping errors last also improves readability, especially in functions that return multiple values. Since Go doesn’t use exceptions, this pattern makes error handling more predictable and structured.
+
+To see this in action, let’s look at a simple example:
+
+```tsx
+// main.go
+package main
+
+import (
+	"fmt"
+)
+
+func divide(a, b float64) (float64, error) {
+	if b == 0 {
+		return 0, fmt.Errorf("cannot divide by zero")
+	}
+	return a / b, nil
+}
+
+func main() {
+	result, err := divide(10, 0)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+	fmt.Println("Result:", result)
+}
+```
+
+In this example, the divide function returns both the result and an error, with the error placed last. The main function then calls divide, checks for an error, and handles it properly before using the result. This approach keeps the code predictable and easy to maintain while following Go's conventions.
+
+<br />
+
+### Creating Custom Errors in Go
+
+Sometimes, the standard error type isn’t enough to provide meaningful messages or additional context. Custom errors help make error handling clearer and more structured, improving both debugging and code readability. Instead of returning generic errors with fmt.Errorf, defining custom error types allows you to include extra details that make it easier to understand what went wrong.
+
+A custom error type is typically created by defining a struct and implementing the Error() method. Here’s an example:
+
+```tsx
+package main
+
+import (
+	"fmt"
+)
+
+type DivisionByZeroError struct {
+	Dividend float64
+}
+
+func (e *DivisionByZeroError) Error() string {
+	return fmt.Sprintf("cannot divide %.2f by zero", e.Dividend)
+}
+
+func divide(a, b float64) (float64, error) {
+	if b == 0 {
+		return 0, &DivisionByZeroError{Dividend: a}
+	}
+	return a / b, nil
+}
+
+func main() {
+	result, err := divide(10, 0)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+	fmt.Println("Result:", result)
+}
+```
+
+In this example, DivisionByZeroError is a custom error type specifically designed for handling division by zero cases. The struct stores the dividend, which can be used later to provide more context in error messages and debugging.
+
+The Error() method is implemented for DivisionByZeroError, making it compatible with Go’s built-in error interface. When an error occurs, calling err.Error() returns the custom error message defined in our Error() method, which in our case will be "cannot divide dividend by zero".
+
+In the divide function, instead of using fmt.Errorf() to return a generic error message, we now return a custom error type, making the code more readable.
+
+<br />
+
+### Panic and Recovery in Go
+
+In Go, panics occur when the program encounters a critical error that stops execution, such as accessing an out-of-bounds array index or dividing by zero. When a panic happens, Go begins unwinding the stack, cleaning up function calls until the program crashes. Unlike regular error handling, which returns errors explicitly, panics are meant for unexpected failures that should not occur in normal execution.
+
+To prevent a panic from crashing the entire program, Go provides the recover() function. This function allows a program to catch a panic and continue running instead of terminating abruptly.
+
+Here’s an example of how to recover from a panic:
+
+```tsx
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	safeFunction()
+	fmt.Println("Program continues running after recovering from panic.")
+}
+
+func safeFunction() {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println("Recovered from panic:", r)
+		}
+	}()
+
+	causePanic()
+	fmt.Println("This line will not be executed because of the panic.")
+}
+
+func causePanic() {
+	panic("Something went wrong!")
+}
+
+```
+
+In this example, causePanic() triggers a panic with the message "Something went wrong!". Since safeFunction() contains a deferred function with recover(), it catches the panic and prints "Recovered from panic: Something went wrong!". This prevents the program from crashing and allows execution to continue with the next statement in main().
+
+Using panic and recover properly is important. Panics should only be used for critical errors, such as unexpected system failures. Recover should be used only when absolutely necessary, such as preventing a web server from crashing or handling errors in concurrent goroutines. For most cases, it's best to use Go’s standard error handling by returning errors from functions instead of relying on panics.

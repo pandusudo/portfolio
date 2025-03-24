@@ -4,11 +4,12 @@ import { Timeline } from "@/components/ui/timeline";
 import { timelineData } from "@/components/timeline-data";
 import { IconDock } from "@/components/icon-dock";
 import { TechstackSlider } from "@/components/techstack-slider";
-import Footer from "@/components/footer";
+import Header from "@/components/header";
 
 export default function Home() {
   return (
     <>
+      <Header />
       <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen gap-16 -mt-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
         <main className="px-8 flex flex-col gap-2 row-start-2 items-center sm:items-start">
           <Image
@@ -48,7 +49,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }
