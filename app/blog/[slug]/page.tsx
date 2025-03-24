@@ -1,16 +1,20 @@
 import Header from "@/components/header";
 import { PostBody } from "@/components/post-body";
-import { getPost } from "@/app/lib/posts";
+import { getPost, getPosts } from "@/app/lib/posts";
 import { notFound } from "next/navigation";
 
-export default async function PostPage({
-  params: _params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const params = await _params;
-  const post = await getPost(params.slug);
+export async function generateStaticParams() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ slug: post.slug }));
+}
 
+export default async function PostPage(props: {
+  params: Promise<{
+    slug: string;
+  }>;
+}) {
+  const params = await props.params;
+  const post = await getPost(params.slug);
   if (!post) return notFound();
 
   return (
