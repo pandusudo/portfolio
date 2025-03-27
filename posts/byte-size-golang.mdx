@@ -1,0 +1,53 @@
+---
+title: "Breaking Down Golang Struct Size"
+description: Understanding and optimize golang struct size
+slug: golang-struct-size
+imgUrl: golang.svg
+date: Mar 27, 2025
+---
+
+### Explaining Golang Struct Size
+
+A few days ago, I had an interview for a Golang developer position. At the start, I was given a 10 minute multiple choice test. One of the questions involved calculating the byte size of a struct in Golang. I was asked to determine the total number of bytes for a struct containing two data types, a boolean and an integer, in a 64-bit system, without considering memory alignment and padding.
+
+Easy, right? You just need to add the byte sizes of the integer and the boolean since we're ignoring memory alignment and padding. On a 64 bit system, an integer is 8 bytes, and a boolean is 1 byte. In total, the struct is 9 bytes in size.
+
+But you might be wondering, what is this memory alignment and padding that I keep mentioning?
+
+<br />
+
+### Memory Alignment and Padding in Golang
+
+Memory alignment ensures data is stored at addresses that make CPU access faster. Each type has a natural alignment, meaning it works best when stored at memory locations that match its size. For example, on a 64 bit system, an int64 (8 bytes) should be placed at an address that is a multiple of 8. If it's misaligned, the CPU may take extra steps to read it, slowing down the program.
+
+To avoid this, Go adds padding between struct fields. Consider this struct:
+
+```tsx
+type Example struct {
+    a bool  // 1 byte
+    b int   // 8 bytes
+}
+```
+
+While it seems like it should take 9 bytes, Go adds 7 bytes of padding after the boolean to align the integer to an 8 byte boundary. This makes the total size 16 bytes.
+
+What if we rearrange the fields?
+
+```tsx
+type Optimized struct {
+    b int   // 8 bytes
+    a bool  // 1 byte
+}
+```
+
+Go only adds 1 byte of padding because the largest field, the int, is placed first. Since an int on a 64 bit system requires an 8 byte aligned address, putting it at the beginning ensures it is already properly aligned. The next field, bool, only takes 1 byte, but Go ensures the struct’s total size is a multiple of the largest field’s alignment (8 bytes).
+
+After bool, there are 7 extra bytes of padding to round the total struct size up to a multiple of 8 (since Go aligns structs based on their largest field). This brings the total size to 9 bytes.
+
+<br />
+
+### Conclusion
+
+In most real-world applications, struct optimization usually doesn’t make a noticeable difference. For typical web applications or backend services, the impact of padding is negligible because modern systems have plenty of memory, and the CPU handles alignment efficiently. However, in performance-critical applications like low-level systems programming, high-frequency trading, game development, or embedded systems, reducing struct size can improve memory efficiency and cache performance.
+
+This article is part of my journey in learning Golang, inspired by a real interview experience. By documenting my learning process, hopefully, it helps improving my understanding while also sharing insights that might benefit others.
