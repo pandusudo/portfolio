@@ -18,7 +18,7 @@ export default async function PostPage(props: {
 
   try {
     post = await getPost(params.slug);
-  } catch (error) {
+  } catch (_) {
     return notFound();
   }
 
