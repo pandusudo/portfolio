@@ -73,7 +73,9 @@ export const mdxComponents: MDXComponents = {
             src={src}
             alt={alt}
           />
-          <p className="text-center font-light text-foreground/80">{alt}</p>
+          <p className="text-center sm:text-base mt-2 text-xs font-light text-foreground/80">
+            {alt}
+          </p>
         </div>
       </>
     );

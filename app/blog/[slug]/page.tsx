@@ -25,7 +25,7 @@ export default async function PostPage(props: {
           <h1 className="text-2xl sm:text-4xl font-extrabold text-foreground text-center">
             {post?.title}
           </h1>
-          <p className="sm:text-sm text-xs font-normal mt-2 text-foreground/50 text-center">
+          <p className="sm:text-sm text-xs font-light mt-2 text-foreground/80 text-center">
             {post?.date}
           </p>
           <hr className="w-1/2 mt-4 h-1 bg-foreground border-0 mx-auto rounded-full" />
