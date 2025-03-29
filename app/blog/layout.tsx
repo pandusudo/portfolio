@@ -12,14 +12,14 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: process.env.NEXT_PUBLIC_WEB_URL,
     title: `${conf.FULL_NAME} - ${conf.TITLE}`,
-    description: conf.DESCRIPTION,
+    description: "Pandusudo's blog sharing about insight on tech",
   },
   twitter: {
     card: "summary_large_image",
     site: `@${conf.X_USERNAME}`,
     creator: `@${conf.X_USERNAME}`,
     title: `${conf.FULL_NAME} - ${conf.TITLE}`,
-    description: conf.DESCRIPTION,
+    description: "Pandusudo's blog sharing about insight on tech",
     images: `og.png`,
   },
 };
