@@ -18,31 +18,61 @@ But you might be wondering, what is this memory alignment and padding that I kee
 
 ### Memory Alignment and Padding in Golang
 
-Memory alignment ensures data is stored at addresses that make CPU access faster. Each type has a natural alignment, meaning it works best when stored at memory locations that match its size. For example, on a 64 bit system, an int64 (8 bytes) should be placed at an address that is a multiple of 8. If it's misaligned, the CPU may take extra steps to read it, slowing down the program.
+Memory alignment ensures data is stored at addresses that make CPU access faster. Each type has a natural alignment, meaning it works best when stored at memory locations that match its size. For example, on a 64 bit system, an int64 (8 bytes) should be placed at an address that is a multiple of 8. If it's misaligned, the CPU may take extra steps to read it, slowing down the program. To avoid this, Go adds padding between struct fields.
 
-To avoid this, Go adds padding between struct fields. Consider this struct:
+Consider this struct:
 
 ```tsx
 type Example struct {
     a bool  // 1 byte
     b int   // 8 bytes
+    c bool  // 1 byte
 }
 ```
 
-While it seems like it should take 9 bytes, Go adds 7 bytes of padding after the boolean to align the integer to an 8 byte boundary. This makes the total size 16 bytes.
+While it seems like it should take 10 bytes, Go adds 7 bytes of padding after the boolean types to align to an 8 byte boundary. This makes the total size 24 bytes. If it's still unclear, let me help you visualize the memory allocation.
 
-What if we rearrange the fields?
+![Unoptimized Struct Memory Allocation](/byte-size-golang/maloc.png)
+
+If we count the number of blue and pink boxes in the image, the total is 24 because each boolean in the struct rounds up to 8 bytes by adding 7 bytes of padding when sequenced this way.
+
+What if we rearrange the fields like so?
 
 ```tsx
-type Optimized struct {
+type Example struct {
     b int   // 8 bytes
     a bool  // 1 byte
+    c bool  // 1 byte
 }
 ```
 
-Go only adds 1 byte of padding because the largest field, the int, is placed first. Since an int on a 64 bit system requires an 8 byte aligned address, putting it at the beginning ensures it is already properly aligned. The next field, bool, only takes 1 byte, but Go ensures the struct’s total size is a multiple of the largest field’s alignment (8 bytes).
+Let me illustrate how the memory allocation process works under the hood with this simple adjustment we made.
 
-After bool, there are 7 extra bytes of padding to round the total struct size up to a multiple of 8 (since Go aligns structs based on their largest field). This brings the total size to 9 bytes.
+![Optimized Struct Memory Allocation](/byte-size-golang/maloc2.png)
+
+Here, the integer is already aligned at the start of the struct, so no extra padding is needed. The two booleans follow immediately after. In the unoptimized struct, each boolean adds 7 bytes of padding to align to 8 bytes. However, in the optimized struct, the two booleans together take up 2 bytes, so only 6 bytes of padding are needed to reach the next 8-byte boundary. As long as small fields like booleans are grouped together and their total size is less than 8 bytes, Go combines them before adding padding, rather than padding each one separately. Now, if we add up all the pink and blue boxes, the total comes to 16 boxes or 16 bytes.
+
+If you want to test and verify this in Golang, you can use the following code to check the final struct size.
+
+```tsx
+package main
+
+import (
+	"fmt"
+	"unsafe"
+)
+
+type Example struct {
+	a bool
+	b int
+	c bool
+}
+
+func main() {
+	fmt.Println(unsafe.Sizeof(Example{}))
+}
+
+```
 
 <br />
 

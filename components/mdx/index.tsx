@@ -53,7 +53,31 @@ export const mdxComponents: MDXComponents = {
     return <ul className="list-decimal">{children}</ul>;
   },
   pre: Code,
-  Image: NextImage as any,
+  img: ({
+    src,
+    alt,
+  }: React.DetailedHTMLProps<
+    React.ImgHTMLAttributes<HTMLImageElement>,
+    HTMLImageElement
+  > & {
+    src: string;
+    alt: string;
+  }) => {
+    return (
+      <>
+        <div className="w-full my-10">
+          <NextImage
+            width={500}
+            height={450}
+            className="bg-red-400 mx-auto"
+            src={src}
+            alt={alt}
+          />
+          <p className="text-center font-light text-foreground/80">{alt}</p>
+        </div>
+      </>
+    );
+  },
   Details: ({
     children,
     summary,
