@@ -14,7 +14,14 @@ export default async function PostPage(props: {
   }>;
 }) {
   const params = await props.params;
-  const post = await getPost(params.slug);
+  let post = null;
+
+  try {
+    post = await getPost(params.slug);
+  } catch (error) {
+    return notFound();
+  }
+
   if (!post) return notFound();
 
   return (
