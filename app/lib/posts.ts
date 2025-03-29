@@ -16,7 +16,7 @@ export type Post = {
 export const getPosts = cache(async () => {
   const posts = await fs.readdir("./posts/");
 
-  return Promise.all(
+  let postData = await Promise.all(
     posts
       .filter(
         (file) => path.extname(file) === ".md" || path.extname(file) === ".mdx"
@@ -30,6 +30,13 @@ export const getPosts = cache(async () => {
         return { ...data, body: content, type: "post" } as Post;
       })
   );
+
+  // Sort posts newest to oldest
+  postData = postData.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+
+  return postData;
 });
 
 export async function getPost(slug: string): Promise<Post | undefined> {
