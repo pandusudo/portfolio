@@ -1,15 +1,23 @@
-import { conf } from "../../lib/constant";
-import { getPost } from "../../lib/posts";
 import { ImageResponse } from "next/og";
 
-export const alt = `A Blog by ${conf.AUTHOR.NAME}`;
+const AUTHOR_NAME = "pandusudo";
+export const alt = `A Blog by ${AUTHOR_NAME}`;
 export const size = {
   width: 1200,
   height: 630,
 };
 
 export default async function Image({ params }: { params: { slug: string } }) {
-  const post = await getPost(params.slug);
+  const res = await fetch(
+    `https://raw.githubusercontent.com/pandusudo/portfolio/main/posts/${params.slug}.mdx`
+  );
+
+  if (!res.ok) {
+    return new Response("Not found", { status: 404 });
+  }
+
+  const text = await res.text();
+  const title = text.match(/title: (.*)/)?.[1].replace(/"/g, "");
 
   return new ImageResponse(
     (
@@ -39,8 +47,8 @@ export default async function Image({ params }: { params: { slug: string } }) {
             justifyContent: "center",
           }}
         >
-          <p style={{ fontSize: "60px" }}>{post?.title}</p>
-          <p style={{ fontSize: "30px" }}>{`A Blog by ${conf.AUTHOR.NAME}`}</p>
+          <p style={{ fontSize: "60px" }}>{title}</p>
+          <p style={{ fontSize: "30px" }}>{`A Blog by ${AUTHOR_NAME}`}</p>
         </span>
       </div>
     ),
