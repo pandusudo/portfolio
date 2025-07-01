@@ -1,5 +1,5 @@
-import { conf } from "@/app/lib/constant";
-import { getPost } from "@/app/lib/posts";
+import { conf } from "../../lib/constant";
+import { getPost } from "../../lib/posts";
 import { ImageResponse } from "next/og";
 
 export const alt = `A Blog by ${conf.AUTHOR.NAME}`;
