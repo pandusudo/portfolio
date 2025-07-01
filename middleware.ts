@@ -43,6 +43,7 @@ export default async function middleware(req: NextRequest) {
   const notAllowedPaths = new Set(['/blog']);
   console.log(process.env.NEXT_PUBLIC_ROOT_DOMAIN);
   console.log(path)
+  console.log(notAllowedPaths.has(path))
   if (hostname === process.env.NEXT_PUBLIC_ROOT_DOMAIN) {
     if (notAllowedPaths.has(path)) {
       return NextResponse.rewrite(new URL(`/404`, req.url));
