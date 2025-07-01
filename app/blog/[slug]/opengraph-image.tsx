@@ -1,8 +1,6 @@
 import { conf } from "@/app/lib/constant";
 import { getPost } from "@/app/lib/posts";
 import { ImageResponse } from "next/og";
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
 
 export const alt = `A Blog by ${conf.AUTHOR.NAME}`;
 export const size = {
@@ -12,9 +10,6 @@ export const size = {
 
 export default async function Image({ params }: { params: { slug: string } }) {
   const post = await getPost(params.slug);
-  const logoData = await readFile(join(process.cwd(), "public/avatar.png"));
-  const logoSrc = Uint8Array.from(logoData).buffer;
-  console.log(logoData);
 
   return new ImageResponse(
     (
@@ -30,7 +25,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
         }}
       >
         <img
-          src={logoSrc}
+          src={`${process.env.NEXT_PUBLIC_WEB_URL}/avatar.png`}
           style={{ marginRight: "30px" }}
           height="300"
           width="300"
