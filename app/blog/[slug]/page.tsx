@@ -2,10 +2,40 @@ import Header from "@/components/header";
 import { PostBody } from "@/components/post-body";
 import { getPost, getPosts } from "@/app/lib/posts";
 import { notFound } from "next/navigation";
+import { conf } from "@/app/lib/constant";
 
 export async function generateStaticParams() {
   const posts = await getPosts();
   return posts.map((post) => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const post = await getPost(params.slug);
+
+  return {
+    title: post?.title,
+    description: post?.description,
+    authors: { name: conf.AUTHOR.NAME, url: conf.AUTHOR.URL },
+    keywords: post?.description,
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: `${process.env.NEXT_PUBLIC_BLOG_URL}/${params.slug}`,
+      title: `${post?.title} - ${conf.AUTHOR.NAME}`,
+      description: post?.description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: `@${conf.X_USERNAME}`,
+      creator: `@${conf.X_USERNAME}`,
+      title: `${post?.title} - ${conf.AUTHOR.NAME}`,
+      description: post?.description,
+    },
+  };
 }
 
 export default async function PostPage(props: {
