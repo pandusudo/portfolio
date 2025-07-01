@@ -41,10 +41,8 @@ export default async function middleware(req: NextRequest) {
   }
 
   const landingPagePaths = ["/"];
-  if (
-    hostname === "localhost:3000" ||
-    hostname === process.env.NEXT_PUBLIC_ROOT_DOMAIN
-  ) {
+  console.log(process.env.NEXT_PUBLIC_ROOT_DOMAIN);
+  if (hostname === process.env.NEXT_PUBLIC_ROOT_DOMAIN) {
     if (!landingPagePaths.includes(path)) {
       return NextResponse.rewrite(new URL(`/404`, req.url));
     } else {
