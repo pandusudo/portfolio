@@ -40,10 +40,8 @@ export default async function middleware(req: NextRequest) {
     );
   }
 
-  const notAllowedPaths = new Set(['/blog']);
-  console.log(hostname)
-  if (hostname === process.env.NEXT_PUBLIC_ROOT_DOMAIN) {
-    console.log(notAllowedPaths.has(path))
+  const notAllowedPaths = new Set(["/blog"]);
+  if (hostname.replace("www.", "") === process.env.NEXT_PUBLIC_ROOT_DOMAIN) {
     if (notAllowedPaths.has(path)) {
       return NextResponse.redirect(new URL(`/`, req.url));
     } else {
