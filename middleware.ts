@@ -41,10 +41,10 @@ export default async function middleware(req: NextRequest) {
   }
 
   const notAllowedPaths = new Set(['/blog']);
+  console.log(hostname)
   if (hostname === process.env.NEXT_PUBLIC_ROOT_DOMAIN) {
+    console.log(notAllowedPaths.has(path))
     if (notAllowedPaths.has(path)) {
-      console.log('Redirecting from', path, 'to /');
-      console.log(req.url)
       return NextResponse.redirect(new URL(`/`, req.url));
     } else {
       return NextResponse.rewrite(new URL(`${path}`, req.url));
