@@ -7,7 +7,7 @@ export const PostCardList = ({ posts }: { posts: Post[] }) => {
   return (
     <div className="flex items-center justify-center min-h-64 py-6">
       <div
-        className={`flex flex-wrap w-full gap-x-2 lg:w-screen gap-y-5 ${
+        className={`flex flex-wrap w-full gap-x-6 xl:gap-x-0 lg:w-screen gap-y-10 ${
           posts.length == 1 ? "justify-center" : ""
         } `}
       >

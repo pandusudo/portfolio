@@ -13,7 +13,7 @@ export const Card = ({
   date?: string;
 }) => {
   return (
-    <div className="w-96 group/card">
+    <div className="w-80 sm:w-96 group/card">
       <div
         className={cn(
           "cursor-pointer overflow-hidden relative border-solid border-foreground/75 border-2 card h-96 rounded-md shadow-xl max-w-sm mx-auto backgroundImage flex flex-col justify-between pt-4"
@@ -33,7 +33,9 @@ export const Card = ({
           <p
             className={cn(
               "font-bold h-2/3 text-background relative z-10 text-center",
-              title && title.length < 50 ? "text-xl pt-4" : "text-base pt-2"
+              title && title.length < 50
+                ? "text-base sm:text-xl pt-4"
+                : "text-base pt-2"
             )}
           >
             {title}
