@@ -1,15 +1,14 @@
 "use client";
 
-import { Share2, Twitter, Linkedin, Link2, Check } from "lucide-react";
+import { Twitter, Linkedin, Link2, Check } from "lucide-react";
 import { useState } from "react";
 
 interface ShareButtonsProps {
   url: string;
   title: string;
-  description?: string;
 }
 
-export function ShareButtons({ url, title, description }: ShareButtonsProps) {
+export function ShareButtons({ url, title }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
 
   const shareLinks = {
