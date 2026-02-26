@@ -121,7 +121,6 @@ export default async function PostPage(props: {
             <ShareButtons
               url={`${process.env.NEXT_PUBLIC_BLOG_URL}/${params.slug}`}
               title={post?.title || ""}
-              description={post?.description}
             />
           </div>
         </div>
