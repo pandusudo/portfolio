@@ -1,6 +1,5 @@
 import { MDXComponents } from "mdx/types";
 import NextImage from "next/image";
-// import Link from '@components/link'
 import { Code } from "bright";
 import Link from "next/link";
 
@@ -16,7 +15,7 @@ export const mdxComponents: MDXComponents = {
     return (
       <Link
         {...props}
-        className="underline font-medium"
+        className="font-medium text-primary underline-offset-4 hover:underline transition-colors"
         href={props.href || ""}
       >
         {children}
@@ -24,33 +23,65 @@ export const mdxComponents: MDXComponents = {
     );
   },
   h1: ({ children }) => {
-    return <h1 className="text-2xl sm:text-4xl font-bold mb-4">{children}</h1>;
+    return (
+      <h1 className="text-3xl md:text-4xl font-bold mt-12 mb-6 tracking-tight scroll-mt-20">
+        {children}
+      </h1>
+    );
   },
   h2: ({ children }) => {
-    return <h2 className="text-xl sm:text-3xl font-bold mb-4">{children}</h2>;
+    return (
+      <h2 className="text-2xl md:text-3xl font-bold mt-10 mb-5 tracking-tight scroll-mt-20">
+        {children}
+      </h2>
+    );
   },
   h3: ({ children }) => {
     return (
-      <h3 className="text-lg sm:text-2xl font-semibold mb-4">{children}</h3>
+      <h3 className="text-xl md:text-2xl font-semibold mt-8 mb-4 tracking-tight scroll-mt-20">
+        {children}
+      </h3>
     );
   },
   h4: ({ children }) => {
     return (
-      <h4 className="text-base sm:text-xl font-semibold mb-4">{children}</h4>
+      <h4 className="text-lg md:text-xl font-semibold mt-6 mb-3 tracking-tight scroll-mt-20">
+        {children}
+      </h4>
     );
   },
   p: ({ children, ...props }) => {
     return (
-      <p {...props} className="text-base mb-2">
+      <p
+        {...props}
+        className="text-base md:text-lg leading-relaxed mb-6 text-foreground/90"
+      >
         {children}
       </p>
     );
   },
   ul: ({ children }) => {
-    return <ul className="list-disc">{children}</ul>;
+    return <ul className="list-disc pl-6 mb-6 space-y-2">{children}</ul>;
   },
   ol: ({ children }) => {
-    return <ul className="list-decimal">{children}</ul>;
+    return <ol className="list-decimal pl-6 mb-6 space-y-2">{children}</ol>;
+  },
+  li: ({ children }) => {
+    return (
+      <li className="text-base md:text-lg leading-relaxed text-foreground/90">
+        {children}
+      </li>
+    );
+  },
+  blockquote: ({ children }) => {
+    return (
+      <blockquote className="border-l-4 border-primary/50 pl-6 py-2 my-8 italic text-lg text-foreground/80 bg-muted/30 rounded-r-lg">
+        {children}
+      </blockquote>
+    );
+  },
+  hr: () => {
+    return <hr className="my-12 border-t border-border" />;
   },
   pre: Code,
   img: ({
@@ -64,20 +95,22 @@ export const mdxComponents: MDXComponents = {
     alt: string;
   }) => {
     return (
-      <>
-        <div className="w-full my-10">
+      <span className="block my-12 -mx-4 md:mx-0">
+        <span className="block relative rounded-xl overflow-hidden bg-muted border border-border shadow-lg">
           <NextImage
-            width={500}
-            height={450}
-            className="bg-red-400 mx-auto"
+            width={800}
+            height={600}
+            className="w-full h-auto"
             src={src}
             alt={alt}
           />
-          <p className="text-center sm:text-base mt-2 text-xs font-light text-foreground/80">
+        </span>
+        {alt && (
+          <span className="block text-center text-sm text-muted-foreground mt-3 italic">
             {alt}
-          </p>
-        </div>
-      </>
+          </span>
+        )}
+      </span>
     );
   },
   Details: ({
