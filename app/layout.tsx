@@ -24,7 +24,6 @@ export const metadata: Metadata = {
   keywords: "pandusudo, pandu cahyo p, portfolio",
   openGraph: {
     type: "website",
-    images: `og.png`,
     locale: "en_US",
     url: process.env.NEXT_PUBLIC_WEB_URL,
     title: `${conf.FULL_NAME} - ${conf.TITLE}`,
@@ -36,7 +35,6 @@ export const metadata: Metadata = {
     creator: `@${conf.X_USERNAME}`,
     title: `${conf.FULL_NAME} - ${conf.TITLE}`,
     description: conf.DESCRIPTION,
-    images: `og.png`,
   },
 };
 

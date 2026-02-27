@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   keywords: "pandusudo, pandu cahyo p, blog",
   openGraph: {
     type: "website",
-    images: `og.png`,
     locale: "en_US",
     url: process.env.NEXT_PUBLIC_BLOG_URL,
     title: `${conf.FULL_NAME} - Blog`,
@@ -20,7 +19,6 @@ export const metadata: Metadata = {
     creator: `@${conf.X_USERNAME}`,
     title: `${conf.FULL_NAME} - Blog`,
     description: "Pandusudo's blog sharing about insight on tech",
-    images: `og.png`,
   },
 };
 
