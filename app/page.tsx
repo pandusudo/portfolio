@@ -4,6 +4,7 @@ import { Timeline } from "@/components/ui/timeline";
 import { timelineData } from "@/components/timeline-data";
 import { TechstackSlider } from "@/components/techstack-slider";
 import { ContactSection } from "@/components/contact-section";
+import { ProjectList } from "@/components/project-list";
 import Header from "@/components/header";
 
 export default function Home() {
@@ -71,6 +72,8 @@ export default function Home() {
       <div>
         <Timeline data={timelineData} />
       </div>
+      {/* Projects Section */}
+      <ProjectList />
       {/* Contact Section */}
       <div id="contact" className="w-full py-20 flex flex-col items-center">
         <div className="text-center space-y-3 mb-4">
