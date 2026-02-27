@@ -37,7 +37,7 @@ export default function Header({
     <div className="container mx-auto sticky top-2 z-50 max-w-screen-lg font-[family-name:var(--font-geist-sans)]">
       <header
         className={cn(
-          "mx-auto h-[56px] w-full bg-transparent border-transparent"
+          "mx-auto h-[56px] w-full bg-transparent border-transparent",
         )}
       >
         <div className="container px-8 lg:px-12 xl:px-4 flex h-14 max-w-screen-2xl items-center justify-between">
@@ -59,7 +59,7 @@ export default function Header({
                                   href={item.href || ""}
                                   className={cn(
                                     "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-                                    ""
+                                    "",
                                   )}
                                 >
                                   <div className="text-sm font-medium leading-none">
@@ -94,7 +94,7 @@ export default function Header({
                               p.startsWith(menu.href || "")
                                 ? "text-foreground/80"
                                 : "text-foreground/60 hover:text-foreground/80",
-                              "!bg-background/0 font-normal"
+                              "!bg-background/0 font-normal",
                             )}
                           >
                             {menu.label}
@@ -102,84 +102,10 @@ export default function Header({
                         </Link>
                       )}
                     </NavigationMenuItem>
-                  )
+                  ),
                 )}
               </NavigationMenuList>
             </NavigationMenu>
-            {/* <Sheet open={open} onOpenChange={setOpen}>
-              <SheetTrigger asChild className="md:hidden flex">
-                <Button size="icon" variant="ghost">
-                  <LucideMenu className="w-4 h-4" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="left">
-                <SheetHeader>
-                  <SheetTitle asChild className="!text-left text-lg">
-                    <Link
-                      className="flex items-center gap-3"
-                      href="/"
-                      onClick={() => setOpen(false)}
-                    >
-                      <span className="font-bold">
-                        {conf.NAME.toLocaleUpperCase()}
-                      </span>
-                    </Link>
-                  </SheetTitle>
-                </SheetHeader>
-                <div className="flex flex-col gap-3 py-4 pl-11">
-                  <Link
-                    className={cn(
-                      p === "/"
-                        ? "text-foreground/80"
-                        : "text-foreground/60 hover:text-foreground/80",
-                      "font-normal"
-                    )}
-                    href="/"
-                    onClick={() => setOpen(false)}
-                  >
-                    Home
-                  </Link>
-                  {MENUS.filter((m) => !m.items?.length).map((menu, i) => (
-                    <Link
-                      key={i}
-                      className={cn(
-                        p.startsWith(menu.href || "")
-                          ? "text-foreground/80"
-                          : "text-foreground/60 hover:text-foreground/80",
-                        "font-normal"
-                      )}
-                      href={menu.href || ""}
-                      onClick={() => setOpen(false)}
-                    >
-                      {menu.label}
-                    </Link>
-                  ))}
-                  {MENUS.filter((m) => m.items?.length).map((menu, i) => (
-                    <div key={i} className="flex flex-col gap-3 pt-3">
-                      <h4 className="font-medium text-muted-foreground/60 text-sm flex gap-2 items-center whitespace-nowrap -ml-6">
-                        <ArrowUpRightIcon className="w-4 h-4" />
-                        {menu.label}
-                      </h4>
-                      {menu.items!.map((item, ii) => (
-                        <Link
-                          key={ii}
-                          className={cn(
-                            p.startsWith(menu.href || "")
-                              ? "text-foreground/80"
-                              : "text-foreground/60 hover:text-foreground/80",
-                            "font-normal"
-                          )}
-                          href={menu.href || ""}
-                          onClick={() => setOpen(false)}
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </SheetContent>
-            </Sheet> */}
           </div>
 
           <div className="flex gap-2 items-center">

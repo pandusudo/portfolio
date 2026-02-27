@@ -3,7 +3,7 @@ export const conf = {
   FULL_NAME: "Pandu Cahyo P",
   TITLE: "Portfolio",
   DESCRIPTION:
-    "Pandu Cahyo's portfolio website - Software engineer with 4 years of experience.",
+    "Pandu Cahyo's portfolio website - Software engineer with 5+ years of experience.",
   AUTHOR: {
     NAME: "pandusudo",
     URL: "https://github.com/pandusudo",

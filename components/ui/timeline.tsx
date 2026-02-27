@@ -51,9 +51,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         <h1 className="text-2xl sm:text-4xl font-bold text-foreground sm:text-left text-center">
           Professional Experience
         </h1>
-        <p className="text-foreground text-sm md:text-base max-w-sm sm:text-left text-center">
-          I&apos;ve been working as a Software Engineer for the past 4 years.
-          Here&apos;s a timeline of my journey.
+        <p className="text-muted-foreground text-sm md:text-base max-w-sm sm:text-left text-center">
+          Timeline of my journey.
         </p>
       </div>
 

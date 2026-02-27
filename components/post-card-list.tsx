@@ -90,7 +90,7 @@ export const PostCardList = ({ posts, className }: PostCardListProps) => {
   }
 
   return (
-    <div className={cn("py-8", className)}>
+    <div className={cn("py-8 px-4 sm:px-0", className)}>
       <div className="flex flex-col gap-6">
         {posts.map((post) => (
           <PostCard key={post.slug} post={post} />

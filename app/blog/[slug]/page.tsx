@@ -139,7 +139,7 @@ export default async function PostPage(props: {
         </div>
 
         {/* Article Content */}
-        <div className="max-w-3xl mx-auto px-6 md:px-8 pb-24">
+        <div className="max-w-3xl mx-auto px-6 md:px-8">
           <div className="prose prose-lg dark:prose-invert prose-headings:font-bold prose-headings:tracking-tight prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-code:text-foreground prose-pre:bg-muted prose-pre:border prose-pre:border-border max-w-none">
             <PostBody>{post?.body}</PostBody>
           </div>
