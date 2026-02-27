@@ -35,11 +35,6 @@ const socialLinks = [
   },
 ];
 
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Blog", href: "/blog" },
-];
-
 export default function Footer() {
   return (
     <footer className="mt-24 ">
