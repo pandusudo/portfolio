@@ -6,12 +6,12 @@ imgUrl: golang.svg
 date: Mar 24, 2025
 ---
 
-### Why error handling is important in software engineering?
+## Why error handling is important in software engineering?
 
 Error handling is a key part of software development that helps keep your app running smoothly and reliably. If you ignore it, you might run into unexpected crashes, security issues, or performance problems that could frustrate users.
 
 <br />
-### What differentiates error handling in Golang from other languages?
+## What differentiates error handling in Golang from other languages?
 
 Error handling in Go is a bit different from other languages. Instead of using exceptions like Python, Java, or JavaScript, Go treats errors as regular values. This means you have to handle errors explicitly, making your code more predictable and reducing unexpected failures.
 
@@ -21,7 +21,7 @@ Up next, we’ll explore Go’s error handling patterns and best practices!
 
 <br />
 
-### Returning Errors in Go
+## Returning Errors in Go
 
 In Go, it's best to place the error as the last return value in a function. This keeps the code readable and consistent across different projects.
 
@@ -58,7 +58,7 @@ In this example, the divide function returns both the result and an error, with 
 
 <br />
 
-### Creating Custom Errors in Go
+## Creating Custom Errors in Go
 
 Sometimes, the standard error type isn’t enough to provide meaningful messages or additional context. Custom errors help make error handling clearer and more structured, improving both debugging and code readability. Instead of returning generic errors with fmt.Errorf, defining custom error types allows you to include extra details that make it easier to understand what went wrong.
 
@@ -104,7 +104,7 @@ In the divide function, instead of using fmt.Errorf() to return a generic error 
 
 <br />
 
-### Panic and Recovery in Go
+## Panic and Recovery in Go
 
 In Go, panics occur when the program encounters a critical error that stops execution, such as accessing an out-of-bounds array index or dividing by zero. When a panic happens, Go begins unwinding the stack, cleaning up function calls until the program crashes. Unlike regular error handling, which returns errors explicitly, panics are meant for unexpected failures that should not occur in normal execution.
 
